@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --main-bg: hsl(210, 46%, 95%);
+  --card-bg: hsl(0, 0%, 100%);
+  --text-clr: hsl(214, 17%, 51%);
+  --heading-clr: hsl(217, 19%, 35%);
+}
+body {
+  min-height: 100vh;
+  color: var(--text-clr);
+  background: var(--main-bg);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: "Manrope", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main {
+  max-width: 425px;
+  background: var(--card-bg);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  margin: 1.7rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  z-index: 0;
+}
+main .image-container {
+  overflow: hidden;
+}
+main .image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  transition: all 0.5s linear;
+}
+main .image-container:hover > img {
+  transform: scale(1.2);
+}
+main .text .text-up {
+  padding: 2rem;
+}
+.text-up h1 {
+  color: var(--heading-clr);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.text .text-down {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.text-down .profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 2rem 1rem 2rem;
+}
+.profile img {
+  max-width: 3rem;
+  border-radius: 50%;
+}
+.profile .profile-desc h2 {
+  color: var(--heading-clr);
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+.text-down .share #share-icon {
+  display: block;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2rem;
+  width: auto;
+  background: var(--main-bg);
+  padding: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.text-down .share-links {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 0%;
+  overflow: hidden;
+  background: var(--heading-clr);
+  z-index: 0;
+  transition: all 0.3s ease-in;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.text-down.active .share-links {
+  height: auto;
+  padding: 1.5rem 2rem 1.75rem 2rem;
+}
+.share-links span {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+.share-links a:hover {
+  transform: scale(1.2);
+}
+footer {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+footer a {
+  color: royalblue;
+}
+footer a:hover {
+  color: var(--heading-clr);
+  text-decoration: none;
+}
+@media (max-width: 350px) {
+  .text-down .profile {
+    gap: 0.5rem;
+    padding: 0 1.5rem 1rem 1.5rem;
+  }
+  .profile .profile-desc h2 {
+    font-size: 0.8rem;
+  }
+  .text-down .share-links {
+    gap: 0.5rem;
+  }
+}
+@media (min-width: 850px) {
+  body {
+    font-size: 1rem;
+  }
+  main {
+    max-width: 850px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    margin: 5rem;
+  }
+  main .image-container img {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.5rem;
+  }
+  main .text .text-up {
+    padding: 2.5rem;
+  }
+  .text-up h1 {
+    font-size: 1.5rem;
+  }
+  .text-down .profile {
+    padding: 0 2.5rem 2rem 2.5rem;
+  }
+  .profile .profile-desc h2 {
+    font-size: 1rem;
+  }
+  .text-down .share #share-icon {
+    bottom: 2rem;
+    right: 2.5rem;
+    padding: 0.75rem;
+  }
+  .text-down.active #share-icon {
+    background: var(--heading-clr);
+    box-shadow: none;
+  }
+  .text-down .share-links {
+    display: none;
+    position: absolute;
+    bottom: 5.5rem;
+    right: -4.5rem;
+    z-index: 2;
+    width: max-content;
+    height: max-content;
+    overflow: visible;
+    border-radius: 0.8rem;
+  }
+  .share-links::after {
+    position: absolute;
+    content: "";
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: hsl(217, 19%, 35%);
+    z-index: 3;
+    transform: rotate(45deg);
+  }
+  .text-down.active .share-links {
+    display: flex;
+    padding: 1rem 2.5rem;
+  }
+}
